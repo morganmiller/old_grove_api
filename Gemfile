@@ -30,9 +30,10 @@ group :development, :test do
 end
 
 group :test do
-  gem "rspec-rails", "~> 3.5.x"
-  gem "factory_girl_rails"
+  gem 'rspec-rails', '~> 3.5.x'
+  gem 'factory_girl_rails'
   gem 'ffaker'
+  gem 'shoulda-matchers'
 end
 
 group :development do
