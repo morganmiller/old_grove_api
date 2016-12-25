@@ -33,6 +33,9 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
+
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
@@ -58,4 +61,13 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/v/3-0/docs
   config.infer_spec_type_from_file_location!
+
+  # Controller & request helpers
+  config.include Request::JsonHelpers, type: :controller
+  config.include Request::HeadersHelpers, :type => :controller
+  config.before(:each, type: :controller) do
+    include_default_accept_headers
+  end
+  config.include Devise::TestHelpers, :type => :controller
+
 end

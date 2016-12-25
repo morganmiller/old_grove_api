@@ -21,6 +21,7 @@ gem 'pg'
 
 #Api gems
 gem 'active_model_serializers'
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -29,9 +30,10 @@ group :development, :test do
 end
 
 group :test do
-  gem "rspec-rails", "~> 3.5.x"
-  gem "factory_girl_rails"
+  gem 'rspec-rails', '~> 3.5.x'
+  gem 'factory_girl_rails'
   gem 'ffaker'
+  gem 'shoulda-matchers'
 end
 
 group :development do
